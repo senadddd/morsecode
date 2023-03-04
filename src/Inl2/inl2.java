@@ -1,5 +1,6 @@
 package Inl2;
 
+
 import java.util.HashMap;
 public class inl2 {
 
@@ -67,6 +68,7 @@ public class inl2 {
         ENGLISH_TO_MORSE.put("Z", "--..");
         ENGLISH_TO_MORSE.put(" ", "/");  // space to slash mapping
     }
+
 
 
 

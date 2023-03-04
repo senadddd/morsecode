@@ -6,7 +6,7 @@ import static Inl2.inl2.ENGLISH_TO_MORSE;
 import static Inl2.inl2.MORSE_TO_ENGLISH;
 
 
-public class Logic {
+public class ConvertMorse {
 
 
     public static void main(String[] args) {
@@ -29,14 +29,15 @@ public class Logic {
     }
 
     public static boolean isMorseCode(String input) {
-        return input.contains(".") || input.contains("-");
+        return input.contains(". ") || input.contains("-");
     }
 
-    public static String translateMorseToEnglish(String input) {
+    public static String translateMorseToEnglish(String input) {   //code uses that string as a translation key for translating Morse code characters to English
         StringBuilder sb = new StringBuilder();
         String[] words = input.split(" / ");
         for (String word : words) {
             String[] letters = word.split(" ");
+
             for (String letter : letters) {
                 sb.append(MORSE_TO_ENGLISH.get(letter));
             }
@@ -55,16 +56,25 @@ public class Logic {
 
 
 
-
-    public String becode(String code) {
-        return "-.";
+    public String EnglishToMorse(String testdata) {
+        return ENGLISH_TO_MORSE.get(testdata);
     }
 
-    public String decode(String code) {
-        return "-...";
+
+    public String MorseToEnglish(String testdata) {
+        return  MORSE_TO_ENGLISH.get(testdata);
     }
 
-    public String secode(String code) {
-        return "/";
+    public String MorseToEnglishSplit(String testdata){
+        return MORSE_TO_ENGLISH.get(testdata);
+    }
+
+
+    public String LongWordsMorseToEnglish(String test) {
+        return translateMorseToEnglish(test);
+    }
+
+    public String AnimalsEnglishToMorse(String animals) {
+        return translateEnglishToMorse(animals);
     }
 }
