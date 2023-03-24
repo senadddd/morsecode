@@ -1,11 +1,11 @@
 package Inl2;
 
-
 import java.util.HashMap;
 public class inl2 {
 
     public static final HashMap<String, String> MORSE_TO_ENGLISH = new HashMap<>();
     public static final HashMap<String, String> ENGLISH_TO_MORSE = new HashMap<>();
+
 
     static {
 
@@ -69,10 +69,39 @@ public class inl2 {
         ENGLISH_TO_MORSE.put(" ", "/");  // space to slash mapping
     }
 
+    public static boolean isMorseCode(String input) {
+        return input.contains(". ") || input.contains("-");
+    }
 
+    public static String translateMorseToEnglish(String input) {   //code uses that string as a translation key for translating Morse code characters to English
+        StringBuilder sb = new StringBuilder();
+        String[] words = input.split(" / ");
+        for (String word : words) {
+            String[] letters = word.split(" ");
+
+            for (String letter : letters) {
+                sb.append(MORSE_TO_ENGLISH.get(letter));
+            }
+            sb.append(" ");
+        }
+        return sb.toString().trim();
+    }
+
+    public static String translateEnglishToMorse(String input) {
+        StringBuilder sb = new StringBuilder();
+        for (char c : input.toCharArray()) {
+            sb.append(ENGLISH_TO_MORSE.get(Character.toString(c))).append(" ");
+        }
+        return sb.toString().trim();
+    }
 
 
 }
+
+
+
+
+
 
 
 
